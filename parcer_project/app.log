@@ -1,0 +1,7 @@
+2026-08-13 17:05:12 [INFO] Старт обработки файла: dirty_data.csv
+2026-08-13 17:05:12 [INFO] Успешно сохранено в output\clean_result.json
+2026-08-13 17:07:04 [INFO] Старт обработки файла: dirty_data.csv
+2026-08-13 17:07:04 [WARNING] Строка 5 пропущена: 'NoneType' object has no attribute 'strip' (Данные: {'timestamp': 'кривая_строка_без_колонок', 'user_id': None, 'type': None, 'amount': None, 'status': None})
+2026-08-13 17:07:04 [WARNING] Строка 6 пропущена: user_id должен быть положительным: -5 (Данные: {'timestamp': '2026-03-01T13:00:00', 'user_id': '-5', 'type': 'deposit', 'amount': '500.00', 'status': 'SUCCESS'})
+2026-08-13 17:07:04 [WARNING] Строка 7 пропущена: could not convert string to float: 'НЕ_ЧИСЛО' (Данные: {'timestamp': '2026-03-01T14:00:00', 'user_id': '105', 'type': 'deposit', 'amount': 'НЕ_ЧИСЛО', 'status': 'SUCCESS'})
+2026-08-13 17:07:04 [INFO] Успешно сохранено в output\clean_result.json

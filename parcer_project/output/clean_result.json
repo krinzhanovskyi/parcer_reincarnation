@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "total_rows_processed": 6,
+    "valid_rows_count": 3,
+    "invalid_rows_count": 3,
+    "net_successful_balance": 800.0,
+    "status_breakdown": {
+      "SUCCESS": 2,
+      "FAILED": 1
+    },
+    "type_breakdown": {
+      "deposit": 1,
+      "withdrawal": 1,
+      "transfer": 1
+    }
+  },
+  "transactions": [
+    {
+      "timestamp": "2026-03-01T10:00:00",
+      "user_id": 100,
+      "trans_type": "deposit",
+      "amount": 1000.0,
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2026-03-01T11:30:00",
+      "user_id": 100,
+      "trans_type": "withdrawal",
+      "amount": 200.0,
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2026-03-01T12:00:00",
+      "user_id": 102,
+      "trans_type": "transfer",
+      "amount": 150.0,
+      "status": "FAILED"
+    }
+  ]
+}
