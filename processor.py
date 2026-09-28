@@ -29,7 +29,6 @@ def parse_csv(input_path: Path) -> Tuple[List[Transaction], Dict[str, Any]]:
 
             valid_transactions.append(tx)
 
-            # Подсчет статистики
             status_counts[tx.status] = status_counts.get(tx.status, 0) + 1
             type_counts[tx.trans_type] = type_counts.get(tx.trans_type, 0) + 1
 

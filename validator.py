@@ -10,7 +10,7 @@ def validate_and_clean_row(row: Dict[str, str], line_num: int) -> Optional[Trans
         required_fields = ["timestamp", "user_id", "type", "amount", "status"]
         for field in required_fields:
             if field not in row or not row[field].strip():
-                raise ValueError(f"Отсутствует обязательное поле '{field}'")
+                raise ValueError(f"required field is missing '{field}'")
 
         raw_time = row["timestamp"].strip()
         raw_user_id = row["user_id"].strip()
@@ -18,24 +18,24 @@ def validate_and_clean_row(row: Dict[str, str], line_num: int) -> Optional[Trans
         raw_amount = row["amount"].strip()
         raw_status = row["status"].strip().upper()
 
-        # Даты
+        # dates
         parsed_dt = datetime.fromisoformat(raw_time)
         clean_time = parsed_dt.isoformat()
 
         # ID
         user_id = int(raw_user_id)
         if user_id <= 0:
-            raise ValueError(f"user_id должен быть положительным: {user_id}")
+            raise ValueError(f"user_id must be more then 0: {user_id}")
 
-        # Сумма
+        # summ
         amount = float(raw_amount)
 
-        # Бизнес-правила
+        # rules
         if raw_type not in {"deposit", "withdrawal", "transfer"}:
-            raise ValueError(f"Неизвестный тип транзакции: '{raw_type}'")
+            raise ValueError(f"Unknown transaction type: '{raw_type}'")
 
         if raw_status not in {"SUCCESS", "FAILED", "PENDING"}:
-            raise ValueError(f"Неизвестный статус: '{raw_status}'")
+            raise ValueError(f"Unknown status: '{raw_status}'")
 
         return Transaction(
             timestamp=clean_time,
@@ -46,5 +46,5 @@ def validate_and_clean_row(row: Dict[str, str], line_num: int) -> Optional[Trans
         )
 
     except Exception as exc:
-        logger.warning("Строка %d пропущена: %s (Данные: %s)", line_num, exc, row)
+        logger.warning("Line %d was skipped: %s (Data: %s)", line_num, exc, row)
         return None

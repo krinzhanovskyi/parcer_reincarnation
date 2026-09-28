@@ -8,16 +8,16 @@ from processor import parse_csv
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Консольный валидатор и парсер транзакций")
-    parser.add_argument("-i", "--input", required=True, type=Path, help="Путь к исходному CSV")
-    parser.add_argument("-o", "--output", required=True, type=Path, help="Путь для сохранения JSON")
+    parser = argparse.ArgumentParser(description="console validator and parcer")
+    parser.add_argument("-i", "--input", required=True, type=Path, help="path to the CSV")
+    parser.add_argument("-o", "--output", required=True, type=Path, help="path to the JSON")
     args = parser.parse_args()
 
     if not args.input.exists():
-        logger.error("Входной файл не найден: %s", args.input)
+        logger.error("file not found: %s", args.input)
         return
 
-    logger.info("Старт обработки файла: %s", args.input)
+    logger.info("start: %s", args.input)
     transactions, metrics = parse_csv(args.input)
 
     output_data = {
@@ -29,7 +29,7 @@ def main() -> None:
     with args.output.open("w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    logger.info("Успешно сохранено в %s", args.output)
+    logger.info("successfully saved to   %s", args.output)
 
 
 if __name__ == "__main__":
