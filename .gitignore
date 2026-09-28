@@ -8,3 +8,4 @@ export/
 downloads/
 dirty_data.csv
 app.log
+venv/
