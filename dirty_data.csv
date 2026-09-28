@@ -1,7 +1,0 @@
-timestamp,user_id,type,amount,status
-2026-03-01T10:00:00,100,deposit,1000.00,SUCCESS
-2026-03-01T11:30:00,100,withdrawal,200.00,SUCCESS
-2026-03-01T12:00:00,102,transfer,150.00,FAILED
-кривая_строка_без_колонок
-2026-03-01T13:00:00,-5,deposit,500.00,SUCCESS
-2026-03-01T14:00:00,105,deposit,НЕ_ЧИСЛО,SUCCESS
