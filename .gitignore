@@ -3,7 +3,8 @@
 node_modules/
 __pycache__/
 data/
-output/
+output
 export/
 downloads/
-dirty_data/
+dirty_data.csv
+app.log
