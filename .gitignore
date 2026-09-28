@@ -1,0 +1,8 @@
+.vscode/
+.pytest_cache/
+node_modules/
+__pycache__/
+data/
+output/
+export/
+downloads/
